@@ -1,8 +1,8 @@
 """Constants for the Islamic Prayer component."""
 from prayer_times_calculator import PrayerTimesCalculator
 
-DOMAIN = "islamic_prayer_times"
-NAME = "Islamic Prayer Times"
+DOMAIN = "islamic_prayer_times_custom"
+NAME = "Prayer Times"
 PRAYER_TIMES_ICON = "mdi:calendar-clock"
 
 SENSOR_TYPES = {
