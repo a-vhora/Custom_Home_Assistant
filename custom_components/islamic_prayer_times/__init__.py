@@ -64,6 +64,7 @@ class IslamicPrayerClient:
             longitude=self.hass.config.longitude,
             calculation_method=self.calc_method,
             date=str(dt_util.now().date()),
+            school="hanafi",
         )
         return calc.fetch_prayer_times()
 
