@@ -98,11 +98,11 @@ class IslamicPrayerClient:
 
         """
         _LOGGER.debug("Scheduling next update for Islamic prayer times")
-
+        """
         now = dt_util.utcnow()
 
         midnight_dt = self.prayer_times_info["Midnight"]
-
+      
         if now > dt_util.as_utc(midnight_dt):
             next_update_at = midnight_dt + timedelta(days=1, minutes=1)
             _LOGGER.debug(
@@ -113,6 +113,9 @@ class IslamicPrayerClient:
                 "Midnight is before the day changes so schedule update for the next start of day"
             )
             next_update_at = dt_util.start_of_local_day(now + timedelta(days=1))
+        """    
+        """ Custom Added - Update at 3:01 AM to solve DST issue """
+        next_update_at = dt_util.start_of_local_day() + timedelta(days=1,hours=3,minutes=1)
 
         _LOGGER.info("Next update scheduled for: %s", next_update_at)
 
