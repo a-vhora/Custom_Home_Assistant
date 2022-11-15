@@ -140,6 +140,7 @@ class IslamicPrayerClient:
             self.prayer_times_info[prayer] = dt_util.parse_datetime(
                 f"{dt_util.now().date()} {time}"
             )
+        self.prayer_times_info["Updated"] = dt_util.utcnow()
         await self.async_schedule_future_update()
 
         _LOGGER.debug("New prayer times retrieved. Updating sensors")
