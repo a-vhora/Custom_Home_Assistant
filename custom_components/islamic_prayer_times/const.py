@@ -13,6 +13,7 @@ SENSOR_TYPES = {
     "Maghrib": "prayer",
     "Isha": "prayer",
     "Midnight": "time",
+    "timestamp": "time",    
 }
 
 CONF_CALC_METHOD = "calculation_method"
