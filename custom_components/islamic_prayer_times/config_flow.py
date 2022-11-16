@@ -6,7 +6,7 @@ import voluptuous as vol
 from homeassistant import config_entries
 from homeassistant.core import callback
 
-from .const import CALC_METHODS, CONF_CALC_METHOD, DEFAULT_CALC_METHOD, DOMAIN, NAME
+from .const import CALC_METHODS, CONF_CALC_METHOD, DEFAULT_CALC_METHOD, SCHOOLS, CONF_SCHOOL, DEFAULT_SCHOOL, DOMAIN, NAME
 
 
 class IslamicPrayerFlowHandler(config_entries.ConfigFlow, domain=DOMAIN):
@@ -51,7 +51,13 @@ class IslamicPrayerOptionsFlowHandler(config_entries.OptionsFlow):
                 default=self.config_entry.options.get(
                     CONF_CALC_METHOD, DEFAULT_CALC_METHOD
                 ),
-            ): vol.In(CALC_METHODS)
+            ): vol.In(CALC_METHODS),
+            vol.Optional(
+                CONF_SCHOOL,
+                default=self.config_entry.options.get(
+                    CONF_SCHOOL, DEFAULT_SCHOOL
+                ),
+            ): vol.In(SCHOOLS)
         }
 
         return self.async_show_form(step_id="init", data_schema=vol.Schema(options))
