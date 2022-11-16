@@ -15,7 +15,8 @@
     "step": {
       "init": {
         "data": {
-          "calculation_method": "Prayer calculation method"
+          "calculation_method": "Prayer calculation method",
+          "school" : "Calculation School"
         }
       }
     }
