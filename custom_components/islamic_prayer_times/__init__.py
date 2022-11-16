@@ -14,7 +14,7 @@ from homeassistant.helpers.dispatcher import async_dispatcher_send
 from homeassistant.helpers.event import async_call_later, async_track_point_in_time
 import homeassistant.util.dt as dt_util
 
-from .const import CONF_CALC_METHOD, DATA_UPDATED, DEFAULT_CALC_METHOD, DOMAIN, DEFAULT_SCHOOL, CONF_SCHOOL
+from .const import CONF_CALC_METHOD, DATA_UPDATED, DEFAULT_CALC_METHOD, DOMAIN
 
 _LOGGER = logging.getLogger(__name__)
 
@@ -56,10 +56,6 @@ class IslamicPrayerClient:
     def calc_method(self):
         """Return the calculation method."""
         return self.config_entry.options[CONF_CALC_METHOD]
-    
-    def calc_school(self):
-        """Return the calculation school."""
-        return self.config_entry.options[CONF_SCHOOL]
 
     def get_new_prayer_times(self):
         """Fetch prayer times for today."""
@@ -68,7 +64,7 @@ class IslamicPrayerClient:
             longitude=self.hass.config.longitude,
             calculation_method=self.calc_method,
             date=str(dt_util.now().date()),
-            school=self.calc_school,
+            school="hanafi",
         )
         return calc.fetch_prayer_times()
 
