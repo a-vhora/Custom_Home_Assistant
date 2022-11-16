@@ -21,9 +21,4 @@ CONF_CALC_METHOD = "calculation_method"
 CALC_METHODS: list[str] = list(PrayerTimesCalculator.CALCULATION_METHODS)
 DEFAULT_CALC_METHOD = "isna"
 
-CONF_SCHOOL = "school"
-
-SCHOOLS: list[str] = list(PrayerTimesCalculator.SCHOOLS)
-DEFAULT_SCHOOL = "shafi"
-
 DATA_UPDATED = "Islamic_prayer_data_updated"
