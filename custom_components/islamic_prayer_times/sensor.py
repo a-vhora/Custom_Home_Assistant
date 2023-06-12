@@ -5,6 +5,7 @@ from homeassistant.core import HomeAssistant
 from homeassistant.helpers.dispatcher import async_dispatcher_connect
 from homeassistant.helpers.entity_platform import AddEntitiesCallback
 import homeassistant.util.dt as dt_util
+import pytz
 
 from .const import DATA_UPDATED, DOMAIN, PRAYER_TIMES_ICON, SENSOR_TYPES
 
@@ -50,8 +51,7 @@ class IslamicPrayerTimeSensor(SensorEntity):
     @property
     def native_value(self):
         """Return the state of the sensor."""
-        return self.client.prayer_times_info.get(self.sensor_type).astimezone(
-            dt_util.UTC
+        return self.client.prayer_times_info.get(self.sensor_type).astimezone(pytz.timezone('Australia/Sydney'))
         )
 
     async def async_added_to_hass(self) -> None:
