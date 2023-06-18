@@ -1,6 +1,6 @@
 {
   "domain": "islamic_prayer_times",
-  "name": "Islamic Prayer Times",
+  "name": Prayer Times",
   "codeowners": ["@aadil_vhora"],
   "config_flow": true,
   "documentation": "https://www.home-assistant.io/integrations/islamic_prayer_times",
